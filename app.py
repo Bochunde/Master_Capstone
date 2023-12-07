@@ -19,10 +19,12 @@ def load_model():
         filetypes=[("PyTorch Model Files", "*.pt")],
         title="Select a PyTorch Model File"
     )
-    global model_name_label
-    model_name_label.config(text='Current Model is: '+os.path.basename(file_path)) 
-    global model 
-    model = YOLO(file_path)
+
+    if file_path != "":
+        global model_name_label
+        model_name_label.config(text='Current Model is: '+os.path.basename(file_path)) 
+        global model 
+        model = YOLO(file_path)
 
 def video_capture_onclick():
     file_path = filedialog.askopenfilename(
@@ -48,8 +50,8 @@ root.title('Fruit Detection')
 root.config(bg='white')
 root.resizable(False,False)
 
-model_name = 'Current Model is: Not Loaded Yet'
-model = None
+model_name = 'Current Model is: fruit_detect.pt'
+model = YOLO('fruit_detect.pt')
 
 label_font = font.Font(size=15, weight="bold")
 model_name_label = ttk.Label(root,text=model_name,font=label_font,background='white')

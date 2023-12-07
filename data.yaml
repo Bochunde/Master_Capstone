@@ -1,0 +1,11 @@
+names:
+- Apple
+- Banana
+- Grape
+- Orange
+- Pineapple
+- Watermelon
+nc: 6
+test: C:\Users\97659\Desktop\homework\grad_2023_SPRING\CSE_573\final_project\second_dataset\archive\Fruits-detection\test\images
+train: C:\Users\97659\Desktop\homework\grad_2023_SPRING\CSE_573\final_project\second_dataset\archive\Fruits-detection\train\images
+val: C:\Users\97659\Desktop\homework\grad_2023_SPRING\CSE_573\final_project\second_dataset\archive\Fruits-detection\valid\images
