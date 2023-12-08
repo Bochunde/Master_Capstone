@@ -31,7 +31,8 @@ def video_capture_onclick():
         filetypes=[("video file", "*.asf *.avi *.gif *.mkv *.mov *.mp4 *.mpeg *.mpg *.ts *.wmv *.webm")],
         title="Select a Video File"
     )
-    video_capture(tkinter.Toplevel(), window_title="video detection",video_source=file_path,model=model)
+    if file_path != "":
+        video_capture(tkinter.Toplevel(), window_title="video detection",video_source=file_path,model=model)
 
 def real_time_capture_onclick():
     real_time_capture(tkinter.Toplevel(), window_title="real-time detection",model=model)
@@ -41,7 +42,8 @@ def image_capture_onclick():
         filetypes=[("Image Files", "*.bmp *.dng *.jpeg *.jpg *.mpo *.png *.tif *.tiff *.webp *.pfm")],
         title="Select an Image"
     )
-    image_capture(tkinter.Toplevel(), window_title="image detection",model=model,source=file_path)
+    if file_path != "":    
+        image_capture(tkinter.Toplevel(), window_title="image detection",model=model,source=file_path)
 
     
 root = tk.Tk()
@@ -51,7 +53,7 @@ root.config(bg='white')
 root.resizable(False,False)
 
 model_name = 'Current Model is: fruit_detect.pt'
-model = YOLO('fruit_detect.pt')
+model = YOLO('best.pt')
 
 label_font = font.Font(size=15, weight="bold")
 model_name_label = ttk.Label(root,text=model_name,font=label_font,background='white')
